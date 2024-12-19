@@ -13,21 +13,21 @@ const FileUpload = ({ contract, account, provider }) => {
 
         const resFile = await axios({
           method: "post",
-          url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
+          url: env.IPFS_Gateway,
           data: formData,
           headers: {
-            pinata_api_key: `5596cd6839929e685f42`,
-            pinata_secret_api_key: `e67438efa31588a70f51683179b5623c8ee8d0eb2436b9b3210ecb6c5ce84665`,
+            ipfs_api_key: env.Key,
+            ipfs_secret_api_key: env.S_Key,
             "Content-Type": "multipart/form-data",
           },
         });
-        const ImgHash = `https://gateway.pinata.cloud/ipfs/${resFile.data.IpfsHash}`;
+        const ImgHash = `https://gateway.ipfs.cloud/ipfs/${resFile.data.IpfsHash}`;
         contract.add(account,ImgHash);
         alert("Successfully Image Uploaded");
         setFileName("No image selected");
         setFile(null);
       } catch (e) {
-        alert("Unable to upload image to Pinata");
+        alert("Unable to upload image to ipfs");
       }
     }
     setFileName("No image selected");
@@ -85,11 +85,11 @@ export default FileUpload;
 
 //           const resFile = await axios({
 //             method: "post",
-//             url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
+//             url: "https://api.ipfs.cloud/pinning/pinFileToIPFS",
 //             data: formData,
 //             headers: {
-//               pinata_api_key: `95f328a012f1634eab8b`,
-//               pinata_secret_api_key: `8ea64e6b39c91631c66128a7c0e0dde35a6fbdf797a8393cc5ba8bf8d58e9b54`,
+//               ipfs_api_key: `95f328a012f1634eab8b`,
+//               ipfs_secret_api_key: `8ea64e6b39c91631c66128a7c0e0dde35a6fbdf797a8393cc5ba8bf8d58e9b54`,
 //               "Content-Type": "multipart/form-data",
 //             },
 //           });
@@ -100,7 +100,7 @@ export default FileUpload;
 
 //           //setUrlArr((prev) => [...prev, ImgHash]);
 
-//           //Take a look at your Pinata Pinned section, you will see a new file added to you list.
+//           //Take a look at your ipfs Pinned section, you will see a new file added to you list.
 //         } catch (error) {
 //           alert("Error sending File to IPFS");
 //           console.log(error);
