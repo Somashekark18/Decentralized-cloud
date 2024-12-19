@@ -1,0 +1,110 @@
+/* Main container for centering everything */
+.display-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: #4e4f50;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* File list container - Adjusting for vertical stack */
+.file-list {
+  display: flex;
+  flex-direction: column;  /* Stack buttons vertically */
+  gap: 20px; /* Add space between buttons */
+  width: 100%; /* Make buttons take full width of container */
+  margin-bottom: 30px;
+}
+
+/* Style for each file button */
+.file-button {
+  padding: 15px 30px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%; /* Ensure all buttons take up the full width of the parent container */
+  max-width: 1000px; /* Limit the maximum width to make sure buttons are not too large */
+  text-align: center;
+  box-sizing: border-box; /* Ensures padding is included in the width calculation */
+  word-wrap: break-word; /* Ensure long CIDs wrap inside the button */
+}
+
+.file-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.file-button:active {
+  transform: scale(0.98);
+}
+
+/* Container for input field and button */
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Style for the address input field */
+.address {
+  padding: 12px;
+  font-size: 16px;
+  width: 500px; /* Increased width for larger input field */
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  outline: none;
+  transition: border 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.address:focus {
+  border: 2px solid #4caf50;
+}
+
+/* Style for the button */
+.button {
+  padding: 12px 25px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .input-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .address {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
